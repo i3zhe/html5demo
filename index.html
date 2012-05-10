@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8"/> 
+	<title>TBWA HTML5 DEMO</title>
+	<script type='text/javascript' src='js/algoTree.js'></script>
+	<style>
+		#canvas1 {
+			float:right;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="canvas"></canvas>
+	<canvas id="canvas1"></canvas>
+	<script type="application/javascript">
+	var height = 500, width = 400;
+	var canvas = document.getElementById('canvas');
+	canvas.height = height;
+	canvas.width = width;
+	ctx = canvas.getContext("2d");
+	// tree.leaveType = tree.BIG_LEAVES;
+	tree.draw(ctx,height,width);
+
+	var canvas1 = document.getElementById('canvas1');
+	canvas1.height = height;
+	canvas1.width = width;
+	ctx1 = canvas1.getContext("2d");
+	tree.draw(ctx1,height,width);
+	</script> 
+	
+</body>
+
+</html>
