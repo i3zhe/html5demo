@@ -4,16 +4,52 @@
 	<meta charset="UTF-8"/> 
 	<title>TBWA HTML5 DEMO</title>
 	<script type='text/javascript' src='js/algoTree.js'></script>
+	<script type="text/javascript" charset="utf-8" src='js/jquery-1.4.2.min.js'></script>
 	<style>
 		#canvas1 {
 			float:right;
 		}
+		#tom {
+			border:solid 1px;
+		}
+		#smile {
+			position: absolute;
+/*			top: 30px;*/
+			left:0px;
+/*			margin:auto;*/
+			z-index:100;
+		}
+		#head {
+			
+			z-index:1;
+		}
+		#eyes {
+			position: absolute;
+			left: 0px;
+			z-index: 10;
+		}
 	</style>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$('#play').click(function(){
+				$('#tom').css({'top':'300px', 'position':'absolute'});
+			
+			});
+		}) ;
+
+	</script>
 </head>
 
 <body>
 	<canvas id="canvas"></canvas>
 	<canvas id="canvas1"></canvas>
+	
+	<div id='tom'>
+		<canvas id="head"></canvas>
+		<canvas id="smile"></canvas>
+		<canvas id="eyes"></canvas>
+	</div>
+	<button id='play'>Play</button>
 	<script type="application/javascript">
 	var height = 500, width = 400;
 	var canvas = document.getElementById('canvas');
@@ -21,13 +57,78 @@
 	canvas.width = width;
 	ctx = canvas.getContext("2d");
 	// tree.leaveType = tree.BIG_LEAVES;
-	tree.draw(ctx,height,width);
+	// tree.draw(ctx,height,width);
 
 	var canvas1 = document.getElementById('canvas1');
 	canvas1.height = height;
 	canvas1.width = width;
 	ctx1 = canvas1.getContext("2d");
-	tree.draw(ctx1,height,width);
+	// tree.draw(ctx1,height,width);
+	
+	drawHead();
+	drawSmile();
+	drawEyes();
+	
+	function drawHead() {
+		var canvas = document.getElementById('head');
+		canvas.height = 200;
+		canvas.width = 200;
+		ctx = canvas.getContext("2d");
+		ctx.fillStyle = "#fffccc";
+		ctx.beginPath();
+		ctx.arc(50, 50, 50, 0, Math.PI*2, true); 
+		
+		ctx.closePath();
+		ctx.fill();
+		
+
+	}
+	
+	function drawSmile() {
+		var ctx = null;
+		var canvas = document.getElementById('smile');
+		canvas.height = 100;
+		canvas.width = 100;
+		ctx = canvas.getContext("2d");
+		ctx.strokeStyle = '#fa00ff';
+		ctx.lineWidth = 3;
+		ctx.lineCap = 'round';
+		ctx.arc(60, 70, 10, 0, Math.PI, false);
+
+		ctx.stroke();
+	}
+	
+	function drawEyes() {
+		var canvas = document.getElementById('eyes');
+		canvas.height = 50;
+		canvas.width = 100;
+		ctx = canvas.getContext("2d");
+		ctx.beginPath();
+		ctx.lineWidth = 2;
+	    ctx.moveTo(50,35);
+	    ctx.lineTo(40,35);
+		ctx.moveTo(80,35);
+	    ctx.lineTo(70,35);
+		
+		
+		// tear left
+		ctx.moveTo(40,36);
+	    // ctx.lineTo(40,38);
+		ctx.lineTo(38,42);
+		ctx.moveTo(36,45);
+		ctx.lineTo(34,49);
+		
+		// tear right
+		ctx.moveTo(82,36);
+	    // ctx.lineTo(40,38);
+		ctx.lineTo(84,42);
+		ctx.moveTo(86,45);
+		ctx.lineTo(88,49);
+	
+		ctx.closePath();
+		ctx.stroke();
+		
+	}
 	</script> 
 	
 </body>
