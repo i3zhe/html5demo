@@ -2,9 +2,19 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8"/> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<title>TBWA HTML5 DEMO</title>
 	<script type='text/javascript' src='js/algoTree.js'></script>
-	<script type="text/javascript" charset="utf-8" src='js/jquery-1.4.2.min.js'></script>
+	<!-- // <script type="text/javascript" charset="utf-8" src='js/jquery-1.4.2.min.js'></script> -->
+	<script src="js/mootools-core-1.3.2.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="js/mootools-more-1.3.2.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" language="javascript" src="js/wall.js"></script>
+   	<script type="text/javascript" language="javascript" src="js/reposition.js"></script>
+	<link href="css/reposition.css" rel="stylesheet" type="text/css" media="screen" />
+
 	<style>
 		#canvas1 {
 			float:right;
@@ -30,12 +40,12 @@
 		}
 	</style>
 	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function(){
-			$('#play').click(function(){
-				$('#tom').css({'top':'300px', 'position':'absolute'});
-			
-			});
-		}) ;
+		// $(document).ready(function(){
+		// 	$('#play').click(function(){
+		// 		$('#tom').css({'top':'300px', 'position':'absolute'});
+		// 	
+		// 	});
+		// }) ;
 
 	</script>
 </head>
@@ -50,6 +60,61 @@
 		<canvas id="eyes"></canvas>
 	</div>
 	<button id='play'>Play</button>
+	
+	<div class="clear"></div>
+
+	<div class="grid_12">
+	    <!-- Viewport and Wall -->
+
+	    <div class="container-viewport">
+	        <div class="viewport" id="viewport1">
+	    	<div class="wall" id="wall1"></div>
+	    </div>
+	        <div class="viewport" id="viewport2">
+	    	<div class="wall" id="wall2"></div>
+	    </div>
+	        <div class="viewport" id="viewport3">
+	    	<div class="wall" id="wall3"></div>
+
+	    </div>
+	        <div class="viewport" id="viewport4">
+	    	<div class="wall" id="wall4"></div>
+	    </div>
+	        <div class="viewport" id="viewport5">
+	    	<div class="wall" id="wall5"></div>
+	    </div>
+	        <div class="viewport" id="viewport6">
+	    	<div class="wall" id="wall6"></div>
+
+	    </div>
+	        <div class="viewport" id="viewport7">
+	    	<div class="wall" id="wall7"></div>
+	    </div>
+	        <div class="viewport" id="viewport8">
+	    	<div class="wall" id="wall8"></div>
+	    </div>
+	        <div class="viewport" id="viewport9">
+	    	<div class="wall" id="wall9"></div>
+
+	    </div>
+	        <div class="viewport" id="viewport10">
+	    	<div class="wall" id="wall10"></div>
+	    </div>
+	        <div class="viewport" id="viewport11">
+	    	<div class="wall" id="wall11"></div>
+	    </div>
+	        <div class="viewport" id="viewport12">
+	    	<div class="wall" id="wall12"></div>
+
+	    </div>
+	        </div>
+	    <!-- END Viewport and Wall -->
+	    <a id="shuffle" href="javascript;">Shuffle</a>
+	    <hr />
+	</div>
+	<div class="clear"></div>
+	
+	
 	<script type="application/javascript">
 	var height = 500, width = 400;
 	var canvas = document.getElementById('canvas');
@@ -79,8 +144,8 @@
 		ctx.arc(50, 50, 50, 0, Math.PI*2, true); 
 		
 		ctx.closePath();
-		ctx.fill();
-		
+		// ctx.fill();
+		ctx.stroke();
 
 	}
 	
